@@ -23,6 +23,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<kotlin.version>1.3.10</kotlin.version>
+		<start-class>com.faisal.spring.demo.SpringWithNoAnnotationsKt</start-class>
 	</properties>
 
 	<dependencies>
@@ -75,6 +76,17 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<!--<configuration>-->
+					<!--<mainClass>com.faisal.spring.demo.SpringWithNoAnnotations</mainClass>-->
+					<!--<layout>ZIP</layout>-->
+				<!--</configuration>-->
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
