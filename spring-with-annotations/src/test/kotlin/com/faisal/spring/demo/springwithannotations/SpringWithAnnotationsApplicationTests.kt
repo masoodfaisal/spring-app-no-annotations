@@ -1,0 +1,29 @@
+package com.faisal.spring.demo.springwithannotations
+
+import org.junit.Test
+import org.junit.jupiter.api.BeforeAll
+import org.junit.jupiter.api.TestInstance
+import org.springframework.http.MediaType.APPLICATION_JSON
+import org.springframework.web.reactive.function.client.WebClient
+import org.springframework.web.reactive.function.client.bodyToMono
+import reactor.test.test
+
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+class SpringWithNoAnnotationsTests {
+
+    private val client = WebClient.create("http://localhost:8080")
+
+
+    @Test
+    fun `Test Get all the Events`() {
+        client.get().uri("/events")
+                .accept(APPLICATION_JSON)
+                .retrieve()
+                .bodyToMono<String>()
+                .test()
+                .expectNextCount(1)
+                .expectComplete()
+                .verify()
+    }
+
+}
