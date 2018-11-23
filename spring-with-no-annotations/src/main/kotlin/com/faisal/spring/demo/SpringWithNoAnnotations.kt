@@ -58,7 +58,7 @@ class EventHandler(private val eventService: EventService) {
 class EventService {
 
     fun getAllEvents(): List<Event> {
-        return listOf(
+        return mutableListOf(
                 Event(name = "event1", description = "desc1"),
                 Event(name = "event2", description = "desc2")
         )

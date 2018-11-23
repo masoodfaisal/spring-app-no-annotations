@@ -1,10 +1,9 @@
 package com.faisal.spring.demo.springwithannotations
 
 
-import com.faisal.spring.demo.Event
 import com.faisal.spring.demo.appSimple
-import org.junit.Test
 import org.junit.jupiter.api.BeforeAll
+import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import org.springframework.http.MediaType.APPLICATION_JSON
 import org.springframework.web.reactive.function.client.WebClient

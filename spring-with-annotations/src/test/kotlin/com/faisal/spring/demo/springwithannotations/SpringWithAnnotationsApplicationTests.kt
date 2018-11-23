@@ -1,29 +1,28 @@
 package com.faisal.spring.demo.springwithannotations
 
-import org.junit.Test
-import org.junit.jupiter.api.BeforeAll
+import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
-import org.springframework.http.MediaType.APPLICATION_JSON
-import org.springframework.web.reactive.function.client.WebClient
-import org.springframework.web.reactive.function.client.bodyToMono
-import reactor.test.test
+import org.junit.jupiter.api.extension.ExtendWith
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.boot.test.web.client.TestRestTemplate
+import org.springframework.boot.test.web.client.getForObject
+import org.springframework.test.context.junit.jupiter.SpringExtension
+
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class SpringWithNoAnnotationsTests {
+@ExtendWith(SpringExtension::class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+class SpringWithNoAnnotationsTests(@Autowired private val restTemplate: TestRestTemplate) {
 
-    private val client = WebClient.create("http://localhost:8080")
+
 
 
     @Test
     fun `Test Get all the Events`() {
-        client.get().uri("/events")
-                .accept(APPLICATION_JSON)
-                .retrieve()
-                .bodyToMono<String>()
-                .test()
-                .expectNextCount(1)
-                .expectComplete()
-                .verify()
+        Assertions.assertNotNull(restTemplate.getForObject<String>("/events/"))
+
     }
 
 }
