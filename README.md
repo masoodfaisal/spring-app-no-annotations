@@ -61,9 +61,9 @@ class EventService {
 data class Event (val name: String, val description: String)
 ``` 
  
+Go to stackoverflow and you can find a lot of [questions](https://stackoverflow.com/questions/49018415/proper-configuration-of-spring-boot-2-and-junit-5) about the right way of using annotations. The number and variety of questions will give you an idea of how important the code readability is.
 
 > Programs must be written for people to read, and only incidentally for machines to execute. — [Abelson and Sussman](https://en.wikiquote.org/wiki/Programming_languages)
-
 
  Now let's try to write the same code using the SpringFu approach. The code that is more readable and I can follow the full flow by just reading it.
  The code after this section does use the flow as follows. 
@@ -155,7 +155,7 @@ When using the annoations, we need to make all classes [open](https://kotlinlang
 			</plugin>
 ```
 
-[SpringFu](https://github.com/spring-projects/spring-fu) is an exciting new project which enables us to write cleaner code and offer more control while writing spring based applications. One of the exciting goals is to able to write native applications usng java by supporting [GraalVM](https://www.graalvm.org). Be aware that part of this components are not production ready yet.  
+[SpringFu](https://github.com/spring-projects/spring-fu) is an exciting new project which enables us to write cleaner, more readable code and offer more control while writing spring based applications. One of the exciting goals is to able to write native applications usng java by supporting [GraalVM](https://www.graalvm.org). Be aware that some of the [SpringFu](https://github.com/spring-projects/spring-fu) components are not production ready yet.  
 
 [Kotlin](https://kotlinlang.org/docs/reference/) is an exciting new programming language specially if you are coming from java background. You can start your kotlin journey by attending this [coursera course](https://www.coursera.org/learn/kotlin-for-java-developers).
  
